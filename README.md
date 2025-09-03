@@ -10,6 +10,8 @@ RsyncBack is an addon plugin that uses <strong>rsync</strong> to create fast [
 
 The following is a quick install and backup ( See [Uninstall](#uninstall-rsynback) if you wish to remove RsyncBack )
 
+Note: Check if **rsync** is installed [here](#check-if-rsync-is-installed)
+
 1. Clone directly from Github to the <em>./addons</em> folder below your project:
 ```
     cd <your Godot project>
