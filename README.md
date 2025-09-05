@@ -205,6 +205,28 @@ To completely remove it, just delete the **rsyncback** plugin folder inside the 
 
 You may have to restart your project after deleting plugins.
 
+## Other Notes:
+A Godot project typicaly has two folders: res:// for the project, and user:// for runtime data. Only the res:// folder is backed up with this template. You can add the user:// folder to the RsyncBack template if you need to. However you have to hardcode the source path to your user:// folder and then add the project name, something like this below: (ALWAYS TEST ANY CHANGES TO THE TEMPLATE)
+
+```
+{dry_run_argument} -avih --mkpath --stats  \
+ --out-format="%M %15'l %5f"  \
+ --exclude-from="{exclude_file_path}" \
+ --link-dest="{dest_path}/{project_name}/{prev_backup}" \
+ --log-file-format="%M %15'l %5f" \
+ --log-file="{log_file_path}/{current_datetime}{log_file_suffix}" \
+ "{source_path}" "/home/user1/.local/share/godot/app_userdata/Godot Third-Person Shooter Demo" \
+ "{dest_path}/{project_name}/{current_datetime}"
+```
+
+Notice the sources line above: 
+
+` "{source_path}" "/home/user1/.local/share/godot/app_userdata/Godot Third-Person Shooter Demo" \`
+
+the second path is your project's user:// folder. Make sure NOT to ADD a path delimiter (/) at the end so the user:// folder can be create a separate subfolder inside your backup.
+
+*TIP*: In the same way, you can add a list of other folders to backup. They will all be backed up under the destination path folder.
+
 ## <ins>References:</ins>
 
 |   |   |
