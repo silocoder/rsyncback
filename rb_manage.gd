@@ -388,7 +388,8 @@ static func parse_rsync_arguments(sarguments: String) -> Array:
 	while arg != null:
 		send = arg.get_end()
 		val = arg.strings[0]
-
+		val=val.replace("(", r'\(')
+		val=val.replace(")", r'\)')
 		# escape blanks inside quoted strings of each parameter
 		# e.g. file names/paths
 		arg2=regex2.search(val, 0, - 1)
