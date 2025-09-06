@@ -171,7 +171,7 @@ It looks similar to this:
  "{dest_path}/{project_name}/{current_datetime}"
 ```
 
-The curlies {} are properties replaced by ![](README_IMGS/image2.png)RsyncBack when you run the backup. In effect the above becomes something like this command which is what executes.
+The curlies {} are properties replaced by ![](README_IMGS/image2.png)RsyncBack when you run the backup. In effect the above becomes this command which is what runs.
 
 ```
 /usr/local/bin/rsync  -avih --mkpath --stats  \
@@ -210,7 +210,8 @@ You can modify this template anyway you want. E.g. add a remote backup ssh keyfi
 1. Making sure master branch is selected, click on the green **Code** button and select Dowload Zip
 1. Save the rsyncback-master.zip file into the ./addons folder of your project.
 1. Unzip the zip contents into a folder named ./addons/rsyncback. If you use command line unzip it should look something like: 
-1.  ```unzip rsyncback-master.zip -d rsyncback```
+1.  ```unzip rsyncback-master.zip``` # unzip master folder <br>
+```mv rsyncback-master rsyncback```  # rename folder to rsyncback
 1. Delete the rsyncback-master.zip file
 
 [Back to installing RsyncBack plugin](#bookmark1)
