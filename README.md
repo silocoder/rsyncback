@@ -10,18 +10,21 @@ The main usage for RsyncBack plugin is to be a Godot GUI front end and to make 
 
 ## <ins>Quick Setup/Run RsyncBack plugin</ins>
 
-**Note:** This plugin, requires the binary **rsync** min ver. 3.2.4 to be installed on your system. For Linux and MacOSX it should come preinstalled but verify [here](#check-if-rsync-is-installed). For Windows click [Windows Users](#windows-users)
-
+**Note:** This plugin, requires the binary **rsync** min ver. 3.2.4 to be installed on your system. For Linux and MacOSX it should come preinstalled but verify [here](#check-if-rsync-is-installed). Windows users click [Windows Users](#windows-users)
+Once verified come continue the next steps here.
 
 Install ![](README_IMGS/image2.png)RsyncBack plugin and perform a backup as follows: ( See [Uninstall](#uninstall-rsynback) if you wish to remove ![](README_IMGS/image2.png)RsyncBack )
 
-1. Clone directly from Github to the <em>./addons</em> folder below your project:
+
+
+1. Clone directly from Github to the <em>./addons</em> folder below your project (No git? Click [Alternate Download Method](#alternate-download-method)):
 ```
     cd <your Godot project>
     mkdir addons   # make addons dir if you dont have one
     cd addons
     git clone https://github.com/silocoder/rsyncback.git
 ```
+<a id="bookmark1"></a>
 
 2. Open your Godot project and enable the ![](README_IMGS/image2.png)RsyncBack plugin in Godot’s Menu > <em>Project > Project Settings > Plugins</em>. This will display the ![](README_IMGS/image2.png)RsyncBack menu link at the top of the editor.
 
@@ -102,6 +105,9 @@ or
 Copyright (C) 1996-2022 by Andrew Tridgell, Wayne Davison, and others.
 .......`
 
+[Back to installing RsyncBack plugin](#quick-setuprun-rsyncback-plugin)
+
+
 ## <ins>Windows Users<ins>
 ### Installing and running rsync on Windows.
 
@@ -128,6 +134,8 @@ So in this case, you would choose the path above, in the ![](README_IMGS/image2.
 Note: There are a few articles online on how to install MSYS2 and rsync. In fact here is one explaining how to do it if you are using Git. [https://tlundberg.com/installing-rsync-on-windows](https://www.google.com/url?q=https://tlundberg.com/installing-rsync-on-windows&sa=D&source=editors&ust=1752710978300371&usg=AOvVaw24eApOnMICqLL6VHAzBxVx)
 
 From the article: If you didn't already know, Git for Windows and its Git Bash environment is built using [msys2](https://www.google.com/url?q=http://msys2.org/&sa=D&source=editors&ust=1752710978300813&usg=AOvVaw335tSAbpp4EALksPZui4UQ), but it doesn't include all the binaries from that project.
+
+[Back to installing RsyncBack plugin](#quick-setuprun-rsyncback-plugin)
 
 ## <ins>Backup Folders Layout and Restore<ins>
 
@@ -182,7 +190,7 @@ Notice the rsync command is added from the path you chose. Also <em>{dry_run_arg
 
 You can modify this template anyway you want. E.g. add a remote backup ssh keyfile or add –delete option. Study up on rsync if you plan to customize the template.
 
-### Description of **rsync** parameters used 
+### <ins>Description of **rsync** template parameters</ins>
 (See more https://download.samba.org/pub/rsync/rsync.1#OPTION_SUMMARY):
 
 ```
@@ -196,6 +204,16 @@ You can modify this template anyway you want. E.g. add a remote backup ssh keyfi
 "source code path"  # Your current Godot project path
 "backup path"   # The new backup path folder
 ```
+## <ins>Alternate Download Method</ins>
+
+1. In your browser, navigate to https://github.com/silocoder/rsyncback 
+1. Making sure master branch is selected, click on the green **Code** button and select Dowload Zip
+1. Save the rsyncback-master.zip file into the ./addons folder of your project.
+1. Unzip the zip contents into a folder named ./addons/rsyncback. If you use command line unzip it should look something like: 
+1.  ```unzip rsyncback-master.zip -d rsyncback```
+1. Delete the rsyncback-master.zip file
+
+[Back to installing RsyncBack plugin](#bookmark1)
 
 ## <ins>Uninstall RsynBack</ins>
 
@@ -206,7 +224,7 @@ To completely remove it, just delete the **rsyncback** plugin folder inside the 
 You may have to restart your project after deleting plugins.
 
 ## Other Notes:
-A Godot project typicaly has two folders: res:// for the project, and user:// for runtime data. Only the res:// folder is backed up with this template. You can add the user:// folder to the RsyncBack template if you need to. However you have to hardcode the source path to your user:// folder and then add the project name, something like this below: (ALWAYS TEST ANY CHANGES TO THE TEMPLATE)
+A Godot project typicaly has two folders: **res://** for the project, and **user://** for runtime data. Only the **res://** folder is backed up with this template. You can add the **user://** folder to the ![](README_IMGS/image2.png)RsyncBack template if you need to. However you have to hardcode the source path to your **user://** folder and then add the project name, something like this below: (ALWAYS TEST ANY CHANGES TO THE TEMPLATE)
 
 ```
 {dry_run_argument} -avih --mkpath --stats  \
@@ -223,7 +241,7 @@ Notice the sources line above:
 
 ` "{source_path}" "/home/user1/.local/share/godot/app_userdata/Godot Third-Person Shooter Demo" \`
 
-the second path is your project's user:// folder. Make sure NOT to ADD a path delimiter (/) at the end so the user:// folder can be create a separate subfolder inside your backup.
+the second path is your project's **user://** folder. Make sure NOT to ADD a path delimiter (/) at the end so the **user:// ** folder can be create a separate subfolder inside your backup.
 
 *TIP*: In the same way, you can add a list of other folders to backup. They will all be backed up under the destination path folder.
 
