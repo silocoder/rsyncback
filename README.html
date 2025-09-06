@@ -29,20 +29,23 @@ plugin</ins></h2>
 <p><strong>Note:</strong> This plugin, requires the binary
 <strong>rsync</strong> min ver. 3.2.4 to be installed on your system.
 For Linux and MacOSX it should come preinstalled but verify <a
-href="#check-if-rsync-is-installed">here</a>. For Windows click <a
-href="#windows-users">Windows Users</a></p>
+href="#check-if-rsync-is-installed">here</a>. Windows users click <a
+href="#windows-users">Windows Users</a> Once verified come continue the
+next steps here.</p>
 <p>Install <img src="README_IMGS/image2.png" />RsyncBack plugin and
 perform a backup as follows: ( See <a
 href="#uninstall-rsynback">Uninstall</a> if you wish to remove <img
 src="README_IMGS/image2.png" />RsyncBack )</p>
 <ol type="1">
 <li>Clone directly from Github to the <em>./addons</em> folder below
-your project:</li>
+your project (No git? Click <a
+href="#alternate-download-method">Alternate Download Method</a>):</li>
 </ol>
 <pre><code>    cd &lt;your Godot project&gt;
     mkdir addons   # make addons dir if you dont have one
     cd addons
     git clone https://github.com/silocoder/rsyncback.git</code></pre>
+<p><a id="bookmark1"></a></p>
 <ol start="2" type="1">
 <li><p>Open your Godot project and enable the <img
 src="README_IMGS/image2.png" />RsyncBack plugin in Godot’s Menu &gt;
@@ -192,6 +195,8 @@ label Rsync Cmd Path</p>
 <code>rsync: /usr/bin/rsync /usr/local/bin/rsync /usr/share/rsync /usr/share/man/man1/rsync.1.gz</code></p>
 <p><b>~$ <code>rsync -V</code></b></br>
 <code>rsync  version 3.2.7  protocol version 31 Copyright (C) 1996-2022 by Andrew Tridgell, Wayne Davison, and others. .......</code></p>
+<p><a href="#quick-setuprun-rsyncback-plugin">Back to installing
+RsyncBack plugin</a></p>
 <h2 id="windows-users"><ins>Windows Users<ins></h2>
 <h3 id="installing-and-running-rsync-on-windows.">Installing and running
 rsync on Windows.</h3>
@@ -232,6 +237,8 @@ href="https://www.google.com/url?q=https://tlundberg.com/installing-rsync-on-win
 Git Bash environment is built using <a
 href="https://www.google.com/url?q=http://msys2.org/&amp;sa=D&amp;source=editors&amp;ust=1752710978300813&amp;usg=AOvVaw335tSAbpp4EALksPZui4UQ">msys2</a>,
 but it doesn’t include all the binaries from that project.</p>
+<p><a href="#quick-setuprun-rsyncback-plugin">Back to installing
+RsyncBack plugin</a></p>
 <h2 id="backup-folders-layout-and-restore"><ins>Backup Folders Layout
 and Restore<ins></h2>
 <p>As we said before, <img
@@ -313,8 +320,8 @@ if your command is ok. It is always reset back.</p>
 <p>You can modify this template anyway you want. E.g. add a remote
 backup ssh keyfile or add –delete option. Study up on rsync if you plan
 to customize the template.</p>
-<h3 id="description-of-rsync-parameters-used">Description of
-<strong>rsync</strong> parameters used</h3>
+<h3 id="description-of-rsync-template-parameters"><ins>Description of
+<strong>rsync</strong> template parameters</ins></h3>
 <p>(See more
 https://download.samba.org/pub/rsync/rsync.1#OPTION_SUMMARY):</p>
 <pre><code>-avih       # archive-mode, recursive, verbose, human-readable
@@ -326,6 +333,21 @@ https://download.samba.org/pub/rsync/rsync.1#OPTION_SUMMARY):</p>
 --log-file=    # Path to log file
 &quot;source code path&quot;  # Your current Godot project path
 &quot;backup path&quot;   # The new backup path folder</code></pre>
+<h2 id="alternate-download-method"><ins>Alternate Download
+Method</ins></h2>
+<ol type="1">
+<li>In your browser, navigate to
+https://github.com/silocoder/rsyncback</li>
+<li>Making sure master branch is selected, click on the green
+<strong>Code</strong> button and select Dowload Zip</li>
+<li>Save the rsyncback-master.zip file into the ./addons folder of your
+project.</li>
+<li>Unzip the zip contents into a folder named ./addons/rsyncback. If
+you use command line unzip it should look something like:</li>
+<li><code>unzip rsyncback-master.zip -d rsyncback</code></li>
+<li>Delete the rsyncback-master.zip file</li>
+</ol>
+<p><a href="#bookmark1">Back to installing RsyncBack plugin</a></p>
 <h2 id="uninstall-rsynback"><ins>Uninstall RsynBack</ins></h2>
 <p>Of course you may want to either disable <img
 src="README_IMGS/image2.png" />RsyncBack or completely uninstall it. To
@@ -339,12 +361,14 @@ check that you did not backup anything inside the
 <strong>rsyncback</strong> folder you may want to keep.</p>
 <p>You may have to restart your project after deleting plugins.</p>
 <h2 id="other-notes">Other Notes:</h2>
-<p>A Godot project typicaly has two folders: res:// for the project, and
-user:// for runtime data. Only the res:// folder is backed up with this
-template. You can add the user:// folder to the RsyncBack template if
-you need to. However you have to hardcode the source path to your
-user:// folder and then add the project name, something like this below:
-(ALWAYS TEST ANY CHANGES TO THE TEMPLATE)</p>
+<p>A Godot project typicaly has two folders: <strong>res://</strong> for
+the project, and <strong>user://</strong> for runtime data. Only the
+<strong>res://</strong> folder is backed up with this template. You can
+add the <strong>user://</strong> folder to the <img
+src="README_IMGS/image2.png" />RsyncBack template if you need to.
+However you have to hardcode the source path to your
+<strong>user://</strong> folder and then add the project name, something
+like this below: (ALWAYS TEST ANY CHANGES TO THE TEMPLATE)</p>
 <pre><code>{dry_run_argument} -avih --mkpath --stats  \
  --out-format=&quot;%M %15&#39;l %5f&quot;  \
  --exclude-from=&quot;{exclude_file_path}&quot; \
@@ -355,9 +379,10 @@ user:// folder and then add the project name, something like this below:
  &quot;{dest_path}/{project_name}/{current_datetime}&quot;</code></pre>
 <p>Notice the sources line above:</p>
 <p><code> "{source_path}" "/home/user1/.local/share/godot/app_userdata/Godot Third-Person Shooter Demo" \</code></p>
-<p>the second path is your project’s user:// folder. Make sure NOT to
-ADD a path delimiter (/) at the end so the user:// folder can be create
-a separate subfolder inside your backup.</p>
+<p>the second path is your project’s <strong>user://</strong> folder.
+Make sure NOT to ADD a path delimiter (/) at the end so the
+<strong>user:// </strong> folder can be create a separate subfolder
+inside your backup.</p>
 <p><em>TIP</em>: In the same way, you can add a list of other folders to
 backup. They will all be backed up under the destination path
 folder.</p>
