@@ -10,8 +10,8 @@ The main usage for RsyncBack plugin is to be a Godot GUI front end and to make 
 
 ## <ins>Quick Setup/Run RsyncBack plugin</ins>
 
-**Note:** This plugin, requires the binary **rsync** min ver. 3.2.4 to be installed on your system. For Linux and MacOSX it should come preinstalled but verify [here](#check-if-rsync-is-installed). Windows users click [Windows Users](#windows-users)
-Once verified come continue the next steps here.
+**Note:** This plugin, requires the binary **rsync** min ver. 3.2.4 to be installed on your system. For Linux and MacOSX it should come preinstalled but verify [here](#check-if-rsync-is-installed). Windows click [Windows Users](#windows-users). 
+Once verified continue with the steps below.
 
 Install ![](README_IMGS/rsyncback_16x16.png)RsyncBack plugin and perform a backup as follows: ( See [Uninstall](#uninstall-rsynback) if you wish to remove ![](README_IMGS/rsyncback_16x16.png)RsyncBack )
 
