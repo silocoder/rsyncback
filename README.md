@@ -1,10 +1,10 @@
 
-<h1 align="center"><img src="README_IMGS/rsyncback_16x16.png" width="2%">RsyncBack: Godot Project Backup</img></h1>
+<h1 align="center"><img src="README_IMGS/rsyncback_16x16.png" width="2%">RsyncBack: Godot Projects Backup</img></h1>
 
 <h2 align="center">Plugin Documentation For Linux, MacOSX and Windows(*)</h2>
 
 ## <ins>Introduction</ins>
-![](README_IMGS/rsyncback_16x16.png)RsyncBack is an addon plugin for Godot 4+, that uses <strong>rsync</strong> installed on Linux/MacOSX and available for Windows, to create fast [incremental date-stamped backups](#what-are-incremental-backups-using-hard-links) of your Godot project with a simple click of a button . For more detailed description of <strong>rsync</strong> see [What is rsync?](#what-is-rsync)
+![](README_IMGS/rsyncback_16x16.png)RsyncBack is an addon plugin for Godot 4+, that comes <strong>rsync</strong> installed on Linux/MacOSX and available for Windows, to create fast [incremental date-stamped backups](#what-are-incremental-backups-using-hard-links) of your Godot projects with a one click of a button. For more detailed description of <strong>rsync</strong> click [what is rsync?](#what-is-rsync)
 
 The main usage for RsyncBack plugin is to be a Godot GUI front end and to make it simple to quickly setup backup your project. Once installed and configured, the plugin can be run with just the click of a button to make date-stamped incremental backups of your project source files. The backups can be to any internal or external drive. Each date-stamped backup is its own folder, having the name `[YYYY-MM-DD][HH-MM-SS]`. In addition, it saves storage, because the destination will not contain duplicate copies of files that have not been modified, but rather a hardlink to the original. When you check the backup folders, it will look and feel like a complete backup of your source. More on this later.
 
