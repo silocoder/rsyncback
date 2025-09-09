@@ -485,7 +485,7 @@ func disable_plugin():
 			"OKBUTTON", "CLOSE", "ESCAPE", "CANCEL":
 				msg.queue_free()
 			"ACCEPT":
-				EditorInterface.set_plugin_enabled(plugin_path.get_file(), false)
+				EditorInterface.set_plugin_enabled.call_deferred(plugin_path.get_file(), false)
 				msg.queue_free()
 			_:
 				msg.queue_free()
